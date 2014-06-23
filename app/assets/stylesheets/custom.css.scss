@@ -1,5 +1,11 @@
 @import "bootstrap"; 
 
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
   overflow-y: scroll;
 } 
@@ -20,12 +26,15 @@ textarea {
 	text-align: center;	
 }
 
-.btn {
-	padding-top: 15px;
-}
 
 /* Typography */
 
 h1, h2, h3, h4, h5, h6, p {
 	text-align: center;
+}
+
+/* Forms */
+
+input, select  {
+  width: 100%; 
 }
