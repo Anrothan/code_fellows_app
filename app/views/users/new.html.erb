@@ -1,5 +1,19 @@
 <div class="row">
-  <div class="span6">
+  <div class="span4 container">
+  	<h2>Current Users</h2>
+  	<h5>Join the Team!</h5>
+	
+	<ul>
+		<% @user_list.reverse.each do |user| %>
+			<div class="container users_list span4">
+				<%= link_to image_tag("rails.png", alt: "Profile Picture"), user_path(user.id) %>
+			    <li> <%=link_to "#{user.name}", user_path(user.id) %> </li>
+			</div>
+		<% end %>
+	</ul>
+  </div>
+<div class="offset8">
+  <div class="span4 container">
   	<h2>Sign-up</h2>
 
   	<%= form_for(@user) do |f| %>
@@ -20,10 +34,4 @@
   	  <%= f.submit "Sign-up!", class: "btn btn-large btn-info" %>
   	<% end %>
   </div>
-
-  <div class="offset8">
-  	<h2>Already a user?</h2>
-  	<div class="center">
-  		<%= link_to "Sign In Here", "#", class: "btn btn-large btn-info" %>
-	</div>
 </div>

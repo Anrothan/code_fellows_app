@@ -29,7 +29,7 @@ textarea {
 
 /* Typography */
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, small {
 	text-align: center;
 }
 
@@ -37,4 +37,16 @@ h1, h2, h3, h4, h5, h6, p {
 
 input, select  {
   width: 100%; 
+}
+
+.users_list {
+	padding-top: 5px;
+	padding-bottom: 10px;
+	border-top: 3px solid black;
+	border-left: 3px solid black;
+	border-right: 3px solid black;
+
+	li {
+
+	}
 }
