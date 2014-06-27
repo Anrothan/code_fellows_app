@@ -3,12 +3,17 @@
   	<h2>Current Users</h2>
   	<h5>Join the Team!</h5>
 	
-	<ul>
+
+	<ul class="container span4">
 		<% @user_list.reverse.each do |user| %>
-			<div class="container users_list span4">
-				<%= link_to image_tag("rails.png", alt: "Profile Picture"), user_path(user.id) %>
-			    <li> <%=link_to "#{user.name}", user_path(user.id) %> </li>
-			</div>
+      <div class="row users_list_item">
+  			<div class="container span1">
+  				<%= link_to image_tag("ruby.svg.png", alt: "Profile Picture"), user_path(user.id) %>
+        </div class="container span2 offset1">
+        <div>
+  			  <li> <%=link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %> </li>
+        </div>
+      </div>
 		<% end %>
 	</ul>
   </div>
@@ -19,8 +24,11 @@
   	<%= form_for(@user) do |f| %>
   	  <%= render 'shared/error_messages' %>
 
-  	  <%= f.label			:name %>
-  	  <%= f.text_field 		:name %>
+  	  <%= f.label			:first_name %>
+  	  <%= f.text_field 		:first_name %>
+
+      <%= f.label     :last_name %>
+      <%= f.text_field    :last_name %>
 
   	  <%= f.label			:email %>
   	  <%= f.text_field		:email %>

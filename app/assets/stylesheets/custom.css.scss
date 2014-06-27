@@ -39,14 +39,9 @@ input, select  {
   width: 100%; 
 }
 
-.users_list {
+.users_list_item {
+	list-style-type: none;
 	padding-top: 5px;
-	padding-bottom: 10px;
-	border-top: 3px solid black;
-	border-left: 3px solid black;
-	border-right: 3px solid black;
-
-	li {
-
-	}
+	padding-bottom: 5px;
+	font-size: 20px;
 }
