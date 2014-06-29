@@ -10,7 +10,7 @@
   		<% @user_list.reverse.each do |user| %>
         <div class="row users_list_item">
     			<div class="container span1">
-    				<%= link_to image_tag("ruby.svg.png", alt: "Profile Picture"), user_path(user.id) %>
+    				<%= link_to profile_picture, user_path(user.id) %>
           </div class="container span2 offset1">
           <div>
     			  <li> <%=link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %> </li>

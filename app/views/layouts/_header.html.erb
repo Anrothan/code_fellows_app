@@ -1,6 +1,13 @@
 <header class="navbar navbar-fixed-top navbar"> 
 	<div class="navbar-inner">
 		<div class= "container">
+			<div class="user">
+				<% if signed_in? %>
+					<h6><%= "Hello, #{current_user.first_name} #{current_user.last_name}" %></h6>
+				<% else %>
+					<h6>You are not signed in</h6>
+				<% end %>
+			</div>
 			<nav>
 				<ul class = "nav pull-right">
 					<li><%= link_to "Home", root_path %></li>

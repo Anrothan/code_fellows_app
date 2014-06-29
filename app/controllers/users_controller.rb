@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+	before_action :signed_in_user, only: [:edit, :update, :destroy]
+	before_action :correct_user?, only: [:edit, :update, :destroy]
+
+
 	def new
 		@user_list = User.all
 		@user = User.new
@@ -29,11 +33,10 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find(params[:id])
+
 	end
 
 	def update
-		@user = User.find(params[:id])
 		if @user.update(user_params)
 			flash[:success] = "User information updated"
 			redirect_to @user
@@ -43,8 +46,7 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		@user = User.find(params[:id])
-		@user.destroy
+		@user = User.find(params[:id]).destroy
 		redirect_to signup_path
 	end
 
@@ -52,5 +54,14 @@ class UsersController < ApplicationController
 
 		def user_params
 			params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+		end
+
+		def signed_in_user
+			redirect_to signin_path, notice: "You must be signed in for access" unless signed_in?
+		end
+
+		def correct_user?
+			@user = User.find(params[:id])
+			redirect_to @user, notice: "You are not signed in as this user" unless current_user?(@user)
 		end
 end
