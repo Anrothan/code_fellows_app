@@ -1,4 +1,6 @@
-<h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+<% provide(:title, "#{@user.first_name} #{@user.last_name}") %>
+
+<h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
 
 <div class="center">
 	<% if @user.last_name != "" %>
@@ -9,5 +11,6 @@
 	<% end %>
 	<h4>E-mail Address:<%= " #{@user.email}" %></h4>
 
+	<%= link_to "Back", signup_path, class: "btn btn-large btn-info" %>
 	<%= link_to "Edit User Information", edit_user_path(@user.id), class: "btn btn-info btn-large" %>
 </div>
