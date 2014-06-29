@@ -6,18 +6,18 @@
   	<h5>Join the Team!</h5>
 	
 
-	<ul class="container span4">
-		<% @user_list.reverse.each do |user| %>
-      <div class="row users_list_item">
-  			<div class="container span1">
-  				<%= link_to image_tag("ruby.svg.png", alt: "Profile Picture"), user_path(user.id) %>
-        </div class="container span2 offset1">
-        <div>
-  			  <li> <%=link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %> </li>
+  	<ul class="container">
+  		<% @user_list.reverse.each do |user| %>
+        <div class="row users_list_item">
+    			<div class="container span1">
+    				<%= link_to image_tag("ruby.svg.png", alt: "Profile Picture"), user_path(user.id) %>
+          </div class="container span2 offset1">
+          <div>
+    			  <li> <%=link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %> </li>
+          </div>
         </div>
-      </div>
-		<% end %>
-	</ul>
+  		<% end %>
+  	</ul>
   </div>
 <div class="offset8">
   <div class="span4 container">
