@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id]).destroy
-		redirect_to signup_path
+		redirect_to signup_path, notice: "User profile has been deleted"
 	end
 
 	private
